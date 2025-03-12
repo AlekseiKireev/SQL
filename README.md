@@ -1,4 +1,4 @@
-Вот обновлённая таблица, в которой добавлен столбец с описанием каждого оператора:  
+
 
 | Оператор  | PostgreSQL | MySQL | SQL Server | Oracle | SQLite | Описание | Пример использования |
 |-----------|-----------|-------|------------|--------|--------|-----------|----------------------|
@@ -10,10 +10,9 @@
 | `EXISTS` | [✅](https://www.postgresql.org/docs/current/functions-subquery.html) | [✅](https://dev.mysql.com/doc/refman/8.0/en/exists-and-not-exists-subqueries.html) | [✅](https://learn.microsoft.com/en-us/sql/t-sql/queries/exists-transact-sql) | [✅](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/EXISTS-Condition.html) | [✅](https://www.sqlite.org/lang_expr.html#the_exists_operator) | Проверяет, **существует ли** хотя бы одна строка в подзапросе. | `SELECT * FROM customers WHERE EXISTS (SELECT 1 FROM orders WHERE customers.id = orders.customer_id);` |
 | `SOME` | [✅](https://www.postgresql.org/docs/current/functions-comparison.html#id-1.5.8.30.14) | ❌ | [✅](https://learn.microsoft.com/en-us/sql/t-sql/queries/some-transact-sql) | [✅](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/Comparison-Conditions.html#GUID-850DA43D-8319-456D-9E08-474C2D29CDB0) | ❌ | Аналог оператора `ANY`, сравнивает значение с **любым** из списка. | `SELECT * FROM orders WHERE price > SOME (SELECT price FROM old_orders);` |
 
-### **Объяснение дополнений**
-- В столбце **"Описание"** кратко объясняется, что делает оператор.  
-- Остальные столбцы остались неизменными, добавлены только исправления по форматированию.  
+
+
 - `SOME` фактически является синонимом `ANY`, но не поддерживается в MySQL и SQLite.  
 - В MySQL `ANY` и `ALL` имеют **ограничения** (о которых я уже писал ранее).  
 
-Если тебе нужны дополнительные детали или примеры — спрашивай! 🚀
+
